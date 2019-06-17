@@ -1,14 +1,27 @@
 /**
  * @format
  */
-
 import 'react-native';
 import React from 'react';
+import {Text} from 'react-native'
+import {shallow} from 'enzyme';
+
 import App from '../src/App';
 
-// Note: test renderer must be required after react-native.
-import renderer from 'react-test-renderer';
+describe('Jest', () => {
+    it('is it working ?', () => {
+        const a = 1;
 
-it('renders correctly', () => {
-  renderer.create(<App />);
+        expect(a + 1).toBe(2);
+    });
+});
+
+
+describe('Enzyme', () => {
+    it('is it working ?', () => {
+        const text = 'some text';
+        const wrapper = shallow(<Text>{text}</Text>);
+
+        expect(wrapper.props().children).toBe(text);
+    });
 });
