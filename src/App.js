@@ -38,6 +38,12 @@ export default class App extends Component {
         })
     }
 
+    onDeleted = (index) => {
+        this.setState({
+            items: [...this.state.items.slice(0, index), ...this.state.items.slice(index+1)]
+        })
+    }
+
 
     render() {
         const {items} = this.state;
@@ -46,7 +52,7 @@ export default class App extends Component {
             <View testID="welcome">
                 <Text>ToDo TDD</Text>
                 <AddToDo onAdded={this.onAdded}></AddToDo>
-                <ToDoList items={items} onCompleted={this.onCompleted}></ToDoList>
+                <ToDoList items={items} onCompleted={this.onCompleted} onDeleted={this.onDeleted}></ToDoList>
             </View>
         );
     }
