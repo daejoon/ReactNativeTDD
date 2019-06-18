@@ -25,6 +25,19 @@ export default class App extends Component {
         })
     }
 
+    onCompleted = (index) => {
+        this.setState({
+            items: this.state.items.map((item, i) => {
+                if ( index != i ) return item;
+
+                return {
+                    ...item,
+                    completed: !item.completed
+                };
+            })
+        })
+    }
+
 
     render() {
         const {items} = this.state;
@@ -33,7 +46,7 @@ export default class App extends Component {
             <View testID="welcome">
                 <Text>ToDo TDD</Text>
                 <AddToDo onAdded={this.onAdded}></AddToDo>
-                <ToDoList items={items}></ToDoList>
+                <ToDoList items={items} onCompleted={this.onCompleted}></ToDoList>
             </View>
         );
     }
