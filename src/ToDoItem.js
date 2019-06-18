@@ -28,7 +28,7 @@ export default class ToDoItem extends Component {
 
         return (
             <View style={item.completed ? styles.completed:styles.default}>
-                <Text></Text>
+                <Text>{item.text}</Text>
                 <Button title="C" onPress={this.onCompleted}></Button>
                 <Button title="D" onPress={this.onDeleted}></Button>
             </View>
