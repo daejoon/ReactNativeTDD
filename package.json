@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest test/.*.spec.js"
+    "test": "jest --detectOpenHandles test/.*.spec.js"
   },
   "dependencies": {
     "react": "16.8.3",
